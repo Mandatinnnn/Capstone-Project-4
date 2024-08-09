@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link rel="stylesheet" href="/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="content">
+            <div class="lang">
+                <img src="/images/planet.png" alt="planet" class="lang-logo">
+                <p>EN</p>
+            </div>
+            <img src="/images/logo.jpg" alt="logo" class="logo">
+            <img src="/images/lines.png" alt="lines" class="nav-logo">
+        </div>
+        <hr>
+    </header>
+
+    <section id="gallery">
+        <div class="content">
+            <h1>Gallery</h1>
+            <p>wiki art gallery</p>
+        </div>
+        <div class="slider-container">
+            <div class="slider">
+                    <% images.forEach(image => { %>
+                        <% if (image.width >= image.height) { %>
+                            <div class="slider_item landscape">
+                                <img src="<%= image.image %>" alt="<%= image.title %>">
+                                <div class="caption">
+                                    <p class="year"><%= image.year %></p>
+                                    <h2><%= image.artistName %></h2>
+                                </div>
+                            </div>
+                        <% } else {%>
+                            <div class="slider_item">
+                                <img src="<%= image.image %>" alt="<%= image.title %>">
+                                <div class="caption">
+                                    <p class="year"><%= image.year %></p>
+                                    <h2><%= image.artistName %></h2>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% }) %>
+            </div>
+            <div class="slides-counter">
+                <div class="counter-bar"></div>
+                <div class="count"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"
+    ></script>
+    <script
+        type="text/javascript"
+        src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script src="/slider.js"></script>
+</body>
+</html>
